@@ -1,0 +1,46 @@
+School Management System
+
+
+C++ program for a school management system, which helps in managing school
+by a system. The primary functions of this program is as follows
+ Create a new student:
+This allows the user to create a new student and enter his/her credentials
+(i.e. his/her first and last name, roll number, age, course stream and his/her
+marks). After this the user is prompted to choose an option to either create
+a new student or return to the main menu.
+
+ Display an existing student’s information:
+This allows the user to search the entire database for a particular student
+by first asking his/her course stream and then by asking for his/her roll
+number.
+
+ Modify an existing student’s information:
+This allows the user to modify a particular students information. The user is
+requested to first enter the student’s course stream and then his/her roll
+number. Then a list of options is displayed where the user can change any
+information of the student. After the modifications, the user is asked
+whether to change more information or return to the main menu.
+
+ Deleting an existing student’s information:
+This allows the user to delete a student’s entire profile from the database.
+The program will first ask for the course stream and will then ask the
+student’s roll number.
+Information is stored in this program as long as the program is running.
+
+Programming concepts used:
+ Inheritance
+ Pointers
+ Classes
+ Arrays
+ Encapsulation
+ Loops
+ Strings
+ Conditions
+ Functions
+ Virtual inheritance
+ OOP
+ Function overriding
+ Function overloading
+ Abstract function
+ Goto
+ Constant

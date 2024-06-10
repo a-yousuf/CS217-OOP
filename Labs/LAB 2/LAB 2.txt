@@ -1,0 +1,291 @@
+﻿LAB 2
+Task 1: 
+#include <iostream>
+using namespace std;
+void bfunc(int);
+void rfunc(int);
+int main(){
+        int accno;
+        char code;
+        cout<<"Enter account number: "<<endl;
+        cin>>accno;
+        cout<<"For residential enter r or R For business enter b or B: "<<endl;
+        cin>>code;
+        if(code=='b'||code=='B'){
+                bfunc(accno);
+        }
+        else if(code=='r'||code=='R'){
+                rfunc(accno);
+        }
+        else{
+                cout<<"Error"<<endl;
+        }
+}
+void rfunc(int accno){
+        int no;
+        float fee=0;
+        cout<<"Enter number of premium channels: "<<endl;
+        cin>>no;
+        fee=4.5+20.5+(no*7.5);
+        cout<<"Account number: "<<accno<<endl;
+        cout<<"Billing amount: "<<fee<<endl;
+}
+
+
+void bfunc(int accno){
+        int no,con;
+        float fee=0,pr=0;
+        cout<<"Enter number of premium channels: "<<endl;
+        cin>>no;
+        cout<<"Enter number of connections:  "<<endl;
+        cin>>con;
+        if(con<=10){
+                pr=75;
+                fee=15+pr+(50*no);
+        }
+        else if(con>10){
+                pr=75+(5*con);
+                fee=pr+15+(50*no);
+        }
+        cout<<"Account number: "<<accno<<endl;
+        cout<<"Billing amount: "<<fee<<endl;
+        
+        
+}
+
+
+Task2:
+#include <iostream>
+using namespace std;
+void feetaniinchtomandcm(float &f,float &in){
+        float m,cm;
+        m=f*0.3048;
+        cm=in*2.54;
+        cout<<"Meter(s): "<<m<<endl;
+        cout<<"Centimeter(s): "<<cm<<endl;
+}
+void meterandcmtofeetandinch(float m,float cm){
+        float f,in;
+        f = m * 3.28084;
+        in = cm * 0.393701;
+        cout<<"Feet: "<<f<<endl;
+        cout<<"Inches: "<<in<<endl;
+        
+}
+void choices(){
+        int ch;
+        cout<<"1) Feet and inches to meters and centimeters."<<endl;
+        cout<<"2) Meters and centimeters to feet and inches."<<endl;
+        cout<<"Enter 1 or 2"<<endl;
+}
+int main(){
+        int run=1,ch;
+        float f,in,m,cm;
+        while(run==1){
+                choices();{
+                        cin>>ch;
+                        if(ch==1){
+                                cout<<"Feet and inches to meters and centimeters."<<endl;
+                                cout<<"Enter feet: ";
+                                cin>>f;
+                                cout<<"Enter inches: ";
+                                cin>>in;
+                                feetaniinchtomandcm(f,in);
+                                cout<<"Press 1 to continue. ";
+                                cin>>run;
+                        }
+                        else if(ch==2){
+                                cout<<"Meters and centimeters to feet and inches."<<endl;
+                                cout<<"Enter meters: ";
+                                cin>>m;
+                                cout<<"Enter centimeters: ";
+                                cin>>cm;
+                                meterandcmtofeetandinch(m,cm);
+                                cout<<"Press 1 to continue. ";
+                                cin>>run;
+                        }
+                        else{
+                                cout<<"Error try again."<<endl;
+                        }
+                }
+        }
+}
+Task 3:
+#include<iostream>
+using namespace std;
+void pserv(int accno)
+{        
+        float min, dmin, nmin;
+        float fee, dfee=0, nfee=0;
+        cout<<"Enter minutes used from 6am to 6pm: "<<endl;
+        cin>>dmin;
+        cout<<"Enter minutes used from 6pm to 6am: "<<endl;
+        cin>>nmin;
+        
+        if (nmin>100)
+                nfee =((nmin-100)*.05);
+         
+        else if (dmin>75)
+                dfee =((dmin-75)*0.1);
+        
+                
+        min=dmin+nmin;        
+        
+        fee = 25.00+dfee+nfee;
+        cout<<"Account Number :"<<accno<<endl;
+        cout<<"Type: Premium "<<endl;        
+        cout<<"Number of minutes: "<<min<<endl;        
+        cout<<"Due amount :"<<fee;        
+                
+}
+void rserv(int accno)
+{        
+        float min;
+        float fee;
+        cout<<"Enter number of minutes: "<<endl;
+        cin>>min;
+        if (min>50)
+                fee =10.00+((min-50)*0.2);
+        else
+                fee =10.00;
+        cout<<"Account Number:"<<accno<<endl;
+        cout<<"type: Regular "<<endl;        
+        cout<<"Number of minutes: "<<min<<endl;        
+        cout<<"Due amount:"<<fee;        
+        
+}
+int main()
+{
+        int accno;
+        char code;
+        
+        cout<<"Enter Account Number:"<<endl;
+        cin>>accno;
+        cout<<"Enter Service Code:"<<endl;
+        cin>>code;
+        if(code=='R' || code=='r'){
+                rserv(accno);
+        }
+        else if(code=='P' || code=='p'){
+                pserv(accno);
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Task 4:
+#include <iostream>
+#include <cmath>
+using namespace std;
+#define pi 3.142
+float dist(float x1,float x2,float y1,float y2){
+        float dist;
+        dist = sqrt((pow(x2 - x1, 2)) + (pow(y2 - y1, 2)));
+        return dist;
+}
+float rad(float cx,float cy,float x,float y){
+        float rad;
+        rad= (dist(x,cx,y,cy));
+        return rad;
+}
+float circumference(float rad){
+        float c;
+        c=(rad*pi*2);
+        return c;
+}
+float area(float rad){
+        float area;
+        area=(rad*pi*2);
+        return area;
+}
+int main(){
+        float x1,x2,y1,y2,cx,cy,x,y;
+        cout<<"Enter the x coordinate of first point: "<<endl;
+        cin>>x1;
+        cout<<"Enter the y coordinate of first point: "<<endl;
+        cin>>y1;
+        cout<<"Enter the x coordinate of second point: "<<endl;
+        cin>>x2;
+        cout<<"Enter the x coordinate of second point: "<<endl;
+        cin>>y2;
+        cout<<"Distance between the two points: "<<dist(x1,x2,y1,y2)<<endl;
+        cout<<"Enter the x coordinate of circle center: "<<endl;
+        cin>>cx;
+        cout<<"Enter the y coordinate of circle center: "<<endl;
+        cin>>cy;
+        cout<<"Enter the x coordinate of any point on the circle: "<<endl;
+        cin>>x;        
+        cout<<"Enter the y coordinate of any point on the circle: "<<endl;
+        cin>>y;
+        cout<<"Radius: "<<rad(cx,cy,x,y)<<endl;
+        cout<<"Circumference: "<<circumference(rad(cx,cy,x,y))<<endl;
+        cout<<"Area: "<<area(rad(cx,cy,x,y))<<endl;
+}
+
+
+Task 5:
+#include <iostream>
+using namespace std;
+double bill (double rate, int min, double income){
+    double bill;
+    if (income>=25000){
+         if(min<=20){
+            bill=0;
+        }
+        else{
+            bill= rate*0.70*((min-20)/60);
+        }
+    }
+    else{
+          if(min<=30){
+            bill=0;
+        }
+        else{
+            bill= rate*0.4*((min-30)/60);
+        }
+    }
+
+
+    return bill;
+}
+
+
+int main (){
+    double rate,income;
+    int min;
+
+
+        cout <<"Enter hourly rate: ";
+    cin >> rate;
+    cout <<"Enter consulting time(minutes): ";
+    cin >> min;
+    cout <<"Enter your income: ";
+    cin >> income;
+    cout << endl <<"Billing Amount : $"<< bill(rate,min,income);
+
+
+
+
+    return 0;
+}

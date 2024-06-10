@@ -1,0 +1,204 @@
+﻿LAB 3
+20k-1031
+TASK 1
+#include <iostream>
+using namespace std;
+class task{
+        int age;
+        string name;
+        public:
+        void setage(int age){
+                this-> age = age;
+        }
+        int getage(){
+                return age;
+        }
+        void setname(string name){
+                this-> name = name;
+        }
+        string getname(){
+                return name;
+        }
+        };
+int main(){
+        task obj1;
+        obj1.setage(24);
+        obj1.setname("Abdullah");
+        cout<<"My name is "<<obj1.getname()<<endl;
+        cout<<"My age is "<<obj1.getage()<<endl;
+}
+        
+        
+        
+TASK 2
+#include <iostream>
+using namespace std;
+class date{
+        int dd,mm,yy;
+        public:
+                void setmonth(int mm){
+                        this -> mm=mm;
+                }
+                void setday(int dd){
+                        this -> dd=dd;
+                }
+                void setyear(int yy){
+                        this -> yy=yy;
+                }
+                int getmonth(){
+                        return mm;
+                }
+                int getyear(){
+                        return yy;
+                }
+                int getday(){
+                        return dd;
+                }
+};
+int main(){
+        int dd,mm,yy;
+        date d;
+        cout<<"Enter day: "<<endl;
+        cin>>dd;
+        d.setday(dd);
+        cout<<"Enter month: "<<endl;
+        cin>>mm;
+        d.setmonth(mm);
+        cout<<"Enter year: "<<endl;
+        cin>>yy;
+        d.setyear(yy);
+        cout<<d.getday()<<"/"<<d.getmonth()<<"/"<<d.getyear();
+}
+
+
+TASK 3
+#include <iostream>
+using namespace std;
+class glass{
+        public:
+                int LiqLvl=200;
+                void drink(int mm){
+                        LiqLvl= LiqLvl-mm;
+                }
+                void refill(){
+                        if(LiqLvl<100){
+                                LiqLvl=200;
+                                cout<<"Drink refilled. ";
+                        }
+                        else{
+                                cout<<"More than half.";
+                        }
+                }
+};
+int main(){
+        glass obj1;
+        int mm;
+        cout<<"How much have you drank? (in mm) "<<endl;
+        cin>>mm;
+        obj1.drink(mm);
+        obj1.refill();
+        
+}
+
+
+TASK 4
+#include <iostream>
+using namespace std;
+class emp{
+        string fname;
+        string lname;
+        double salary;
+        public:
+                void setfname(string fname){
+                        this -> fname = fname;
+                }
+                void setlname(string lname){
+                        this -> lname = lname;
+                }
+                void setsalary(double salary){
+                        this -> salary = salary;
+                }
+                string getf(){
+                        return fname;
+                }
+                string getl(){
+                        return lname;
+                }
+                double getsal(){
+                        return salary;
+                }        
+                int raise(){
+                        int raise= salary+(salary*0.1);
+                        return raise;
+                }
+                emp(){
+                        salary=0.0;        
+                }
+};
+int main(){
+        emp ob1;
+        emp ob2;
+        ob1.setfname("A");
+        ob1.setlname("B");
+        ob1.setsalary(2000);
+        ob2.setfname("X");
+        ob2.setlname("Y");
+        ob2.setsalary(9000);
+        cout<<"Employee 1"<<endl;
+        cout<<"First name: "<<ob1.getf()<<endl;
+        cout<<"Last name: "<<ob1.getl()<<endl;
+        cout<<"Salary: "<<ob1.getsal()<<endl;
+        cout<<"Salary after raise: "<<ob1.raise()<<endl;
+        cout<<"Employee 2"<<endl;
+        cout<<"First name: "<<ob2.getf()<<endl;
+        cout<<"Last name: "<<ob2.getl()<<endl;
+        cout<<"Salary: "<<ob2.getsal()<<endl;
+        cout<<"Salary after raise: "<<ob2.raise()<<endl;
+        
+}
+TASK 5
+#include <iostream>
+using namespace std;
+class book{
+        string name,isbn,a_name,publisher;
+        public:
+        void setname(string name){
+                this -> name=name;
+        }
+        void setisbn(string isbn){
+                this -> isbn=isbn;
+        }
+        void seta_name(string a_name){
+                this -> a_name=a_name;
+        }
+        void setpub(string publisher){
+                this -> publisher=publisher;
+        }
+        string gname(){
+                return name;
+        }
+        string gisbn(){
+                return isbn;
+        }
+        string gauthor(){
+                return a_name;
+        }
+        string gpublisher(){
+                return publisher;
+        }
+        void getbookinfo(){
+                cout<<"Book name: "<<gname()<<endl<<"Book isbn: "<<gisbn()<<endl<<"Book author: "<<gauthor()<<endl<<"Book publisher: "<<gpublisher()<<endl;
+        }
+
+
+};
+int main(){
+        book b1;
+        b1.setname("Book");
+        b1.setisbn("000191828");
+        b1.seta_name("Me");
+        b1.setpub("Not me");
+        b1.getbookinfo();
+        
+        
+}
